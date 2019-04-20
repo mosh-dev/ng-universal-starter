@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "universal-starter": {
+    "ng-universal-starter": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/universal-starter",
+            "outputPath": "dist/ng-universal-starter",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "universal-starter:build"
+            "browserTarget": "ng-universal-starter:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "universal-starter:build:production"
+              "browserTarget": "ng-universal-starter:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "universal-starter:build"
+            "browserTarget": "ng-universal-starter:build"
           }
         },
         "test": {
@@ -125,7 +125,7 @@
         }
       }
     },
-    "universal-starter-e2e": {
+    "ng-universal-starter-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -134,11 +134,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "universal-starter:serve"
+            "devServerTarget": "ng-universal-starter:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "universal-starter:serve:production"
+              "devServerTarget": "ng-universal-starter:serve:production"
             }
           }
         },
@@ -154,5 +154,5 @@
       }
     }
   },
-  "defaultProject": "universal-starter"
+  "defaultProject": "ng-universal-starter"
 }

@@ -5,5 +5,5 @@ import {Component} from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'universal-starter';
+  title = 'ng-universal-starter';
 }

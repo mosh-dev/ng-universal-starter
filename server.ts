@@ -13,7 +13,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
-const APP_FOLDER = 'universal-starter';
+const APP_FOLDER = 'ng-universal-starter';
 const allowCookieFrom = ['localhost:4000'];
 
 /**
