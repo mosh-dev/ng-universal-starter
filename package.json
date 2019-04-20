@@ -10,6 +10,7 @@
     "e2e": "ng e2e",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
+    "build_serve_ssr": "npm run build:ssr && npm run serve:ssr",
     "build:client-and-server-bundles": "ng build --prod && ng run ng-universal-starter:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },

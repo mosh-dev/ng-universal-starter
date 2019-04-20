@@ -5,7 +5,7 @@ import {enableProdMode} from '@angular/core';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
-import * as express from 'express';
+import express from 'express';
 
 enableProdMode();
 
