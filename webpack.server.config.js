@@ -9,11 +9,18 @@ module.exports = {
   mode: "none",
   module: {
     rules: [
-      {test: /\.ts$/, loader: "ts-loader"},
       {
-        parser: {system: true},
-        // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
-        // Removing this will cause deprecation warnings to appear.
+        loader: "ts-loader",
+        test: /\.ts$/,
+      },
+      {
+        parser: {
+          system: true,
+        },
+        /**
+         * Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+         * Removing this will cause deprecation warnings to appear.
+         */
         test: /([\\/])@angular([\\/])core([\\/]).+\.js$/,
       },
     ],
