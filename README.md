@@ -1,5 +1,5 @@
 # Angular UniversalStarter
-Version Angular 7.2.X
+Version Angular 8.X.X
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
