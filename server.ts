@@ -22,7 +22,7 @@ const allowCookieFrom = ['localhost:4000'];
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
 app
   .use(cookieParser())
-  .engine('html', (_, options, callback) => {
+  .engine('html', (_, options: any, callback) => {
     const req = options.req;
     renderModuleFactory(AppServerModuleNgFactory, {
       document: readFileSync(join(DIST_FOLDER, APP_FOLDER, 'index.html')).toString(),
