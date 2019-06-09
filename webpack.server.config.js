@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     server: "./server.ts",
   },
-  externals: [/(node_modules|main\..*\.js)/],
+  externals: [/node_modules/],
   mode: "none",
   module: {
     rules: [
