@@ -11,6 +11,10 @@ enableProdMode();
 
 const app = express();
 const cookieParser = require('cookie-parser');
+
+/**
+ * CONFIGURATION'S
+ */
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 const APP_FOLDER = 'ng-universal-starter';
