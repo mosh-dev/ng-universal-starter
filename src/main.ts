@@ -16,31 +16,28 @@ if (environment.production) {
   enableProdMode();
 }
 
-const hmrBootstrap = ({hot}: HotModule, bootstrap: () => Promise<NgModuleRef<any>>) => {
-  let ngModule: NgModuleRef<any>;
-  hot.accept();
-  bootstrap().then(mod => ngModule = mod);
-  hot.dispose(() => {
-    const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
-    const elements = appRef.components.map(c => c.location.nativeElement);
-    const makeVisible = createNewHosts(elements);
-    ngModule.destroy();
-    makeVisible();
-  });
-};
-
-
-const bootstrapFn = () => platformBrowserDynamic().bootstrapModule(AppModule);
-
 if (environment.hmr) {
   if ((module as HotModule).hot) {
-    hmrBootstrap(module as HotModule, bootstrapFn);
+    const hmrBootstrap = ({hot}: HotModule, bootstrap: () => Promise<NgModuleRef<any>>) => {
+      let ngModule: NgModuleRef<any>;
+      hot.accept();
+      bootstrap().then(mod => ngModule = mod);
+      hot.dispose(() => {
+        const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
+        const elements = appRef.components.map(c => c.location.nativeElement);
+        const makeVisible = createNewHosts(elements);
+        ngModule.destroy();
+        makeVisible();
+      });
+    };
+
+    hmrBootstrap(module as HotModule, () => platformBrowserDynamic().bootstrapModule(AppModule));
   } else {
     console.error('HMR is not enabled for webpack-dev-server!');
     console.log('Are you using the --hmr flag for ng serve?');
   }
 } else {
   document.addEventListener('DOMContentLoaded', () => {
-    bootstrapFn().catch(console.error);
+    platformBrowserDynamic().bootstrapModule(AppModule).catch(console.error);
   });
 }
