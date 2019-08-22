@@ -1,7 +1,7 @@
 import {Inject, Injectable, Optional} from '@angular/core';
-import {fromBase64} from '../../ssr/utility';
-import {BrowserCookieStorage} from '../../ssr/storage/cookieStorage';
-import {NODE_PLATFORM} from '../../ssr/platform';
+import {fromBase64} from '../../utilities/utility';
+import {BrowserCookieStorage} from '../../utilities/storage/cookieStorage';
+import {NODE_PLATFORM} from '../../utilities/platform';
 
 /**
  * KeyNames as Strings.
