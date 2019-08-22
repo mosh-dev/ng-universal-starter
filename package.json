@@ -28,7 +28,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^8.1.1",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
-    "rxjs": "~6.4.0",
+    "rxjs": "~6.5.2",
     "tslib": "^1.10.0",
     "ts-loader": "^6.0.4",
     "webpack": "^4.39.2",
