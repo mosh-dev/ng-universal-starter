@@ -7,10 +7,7 @@ import {NODE_PLATFORM} from '../../utilities/platform';
  * KeyNames as Strings.
  * These keys are filtered from cookie object
  */
-const BLACKLISTED_KEYS = [
-  '_ga',
-  '_gid'
-];
+const BLACKLISTED_KEYS: string[] = [];
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +20,7 @@ export class CookieService {
    * All the cookies are base64 Encoded
    * So We are Decoding It On the fly
    */
-  private get cookies(): any {
+  private get decodedCookies(): any {
     const SERVER_COOKIES = this.serverCookies || {};
     return Object
       .keys(SERVER_COOKIES)
@@ -40,6 +37,6 @@ export class CookieService {
   }
 
   getItem(name): any {
-    return NODE_PLATFORM ? this.cookies[name] : BrowserCookieStorage.getItem(name);
+    return NODE_PLATFORM ? this.decodedCookies[name] : BrowserCookieStorage.getItem(name);
   }
 }

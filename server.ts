@@ -16,9 +16,23 @@ const cookieParser = require('cookie-parser');
  * CONFIGURATION'S
  */
 const PORT = process.env.PORT || 4000;
+
+/**
+ * !!Important
+ * This should be same as project name as well as project directory name
+ * Changing DIST_FOLDER, APP_FOLDER values will need to update packages.json as well as angular.json
+ * And some other files which includes tests.
+ * IF you are changing these names, make sure you are checking them at following files
+ * # packages.json
+ * # angular.json
+ * # app.module.ts
+ * # karma.conf.js
+ *
+ * Also packages.lock.json file also contains the name, you might want to remove your packages.lock
+ * as it will be created automatically on next npm install.
+ */
 const DIST_FOLDER = join(process.cwd(), 'dist');
 const APP_FOLDER = 'ng-universal-starter';
-const allowCookieFrom = ['localhost:4000'];
 
 /**
  * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -35,7 +49,7 @@ app
         provideModuleMap(LAZY_MODULE_MAP),
         {
           provide: 'COOKIES',
-          useValue: allowCookieFrom.includes(req.headers.host) ? req.cookies : {}
+          useValue: req.cookies || {}
         }
       ]
     }).then(html => callback(null, html));
