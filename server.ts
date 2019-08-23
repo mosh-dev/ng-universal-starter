@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 4000;
 
 /**
  * !!Important
- * This should be same as project name as well as project directory name
+ * APP_FOLDER should be same as project name as well as project directory name
  * Changing DIST_FOLDER, APP_FOLDER values will need to update packages.json as well as angular.json
  * And some other files which includes tests.
  * IF you are changing these names, make sure you are checking them at following files
