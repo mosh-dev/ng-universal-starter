@@ -17,18 +17,20 @@ export class AppComponent {
      * Example of use cookie in server side
      * Set with BrowserCookieStorage helper class.
      */
-    BrowserCookieStorage.setItem('token', '123RandomToken');
 
-    /**
-     * Access with CookieService
-     * This will work both on ClientSide Cycle and SSR Cycle,
-     * Where BrowserCookieService is only works at clientSide
-     * Cookies are sent with request and injected in via provider in AppEngine inside server.ts
-     */
-    console.log(cs.getItem('token'));
-
-    BrowserCookieStorage.removeItem('token');
-    BrowserCookieStorage.clear();
+    if (cs.getItem('randomKey')) {
+      /**
+       * Access with CookieService
+       * This will work both on ClientSide Cycle and SSR Cycle,
+       * Where BrowserCookieService is only works at clientSide
+       * Cookies are sent with request and injected in via provider in AppEngine inside server.ts
+       */
+      console.log(cs.getItem('randomKey'));
+      BrowserCookieStorage.removeItem('randomKey');
+      BrowserCookieStorage.clear();
+    } else {
+      BrowserCookieStorage.setItem('randomKey', '123RandomToken');
+    }
 
     /**
      * SSR Safe Storage Usage
