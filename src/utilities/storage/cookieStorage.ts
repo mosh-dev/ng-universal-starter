@@ -48,13 +48,15 @@ class CookieStorage {
   }
 
   static clear() {
-    const cookies = document.cookie.split(';');
-    if (cookies && cookies.length) {
-      cookies.forEach(cookie => {
-        const eqPos = cookie.indexOf('=');
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
-      });
+    if (BROWSER_PLATFORM) {
+      const cookies = document.cookie.split(';');
+      if (cookies && cookies.length) {
+        cookies.forEach(cookie => {
+          const eqPos = cookie.indexOf('=');
+          const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        });
+      }
     }
   }
 }
@@ -77,5 +79,9 @@ export class BrowserCookieStorage {
    */
   static getItem(key: string): any {
     return BROWSER_PLATFORM ? CookieStorage.get(key) : null;
+  }
+
+  static clear() {
+    CookieStorage.clear();
   }
 }

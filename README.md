@@ -1,6 +1,20 @@
 # Angular UniversalStarter
 Version Angular 8.X.X
 
+# Renaming Project
+The very first thing you might want to rename the project and give it your own name,
+To do so - make sure you are checking them at following files
+`packages.json` <br>
+`angular.json`<br>
+`server.ts`<br>
+`app.module.ts`<br>
+`karma.conf.js`<br>
+
+Also packages.lock.json file also contains the name, you might want to remove your packages.lock.json
+as it will be created automatically on next npm install. Search and replace would be also a good option, 
+When node module is not already installed
+
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -18,7 +32,8 @@ Run `ng serve --prod` for a production Serve.
 
 # NOTE
 To use ng commands with extended memory:
- `node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng`
+ `node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng <br>
+ Read more ; https://stackoverflow.com/questions/26094420/fatal-error-call-and-retry-last-allocation-failed-process-out-of-memory/48895989#48895989
 
 ## Code scaffolding
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

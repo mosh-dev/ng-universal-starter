@@ -5,4 +5,4 @@ if (environment.production) {
   enableProdMode();
 }
 
-export {AppServerModule} from './app/server/app.server.module';
+export {AppServerModule} from './server/app.server.module';

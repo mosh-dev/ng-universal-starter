@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
@@ -10,7 +10,7 @@
     "**/*.spec.ts"
   ],
   "angularCompilerOptions": {
-    "entryModule": "app/server/app.server.module#AppServerModule",
+    "entryModule": "src/server/app.server.module#AppServerModule",
     "enableIvy": false
   }
 }
