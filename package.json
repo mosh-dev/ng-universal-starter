@@ -35,8 +35,7 @@
     "zone.js": "~0.9.1",
     "webpack": "^4.39.2",
     "webpack-bundle-analyzer": "^3.4.1",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-cli": "^3.3.7"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.802.2",
