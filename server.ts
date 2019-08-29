@@ -52,10 +52,27 @@ app
           useValue: req.cookies || {}
         }
       ]
-    }).then(html => callback(null, html));
+    }).then(html => {
+      /**
+       * Prints How much Memory the node is using to render the  application
+       * With Each Request.
+       */
+      // printMemoryUsage();
+      return callback(null, html);
+    });
   })
   .set('view engine', 'html')
   .set('views', join(DIST_FOLDER, APP_FOLDER))
   .get('*.*', express.static(join(DIST_FOLDER, APP_FOLDER)))
   .get('*', (req, res) => res.render(join(DIST_FOLDER, APP_FOLDER, 'index.html'), {req}))
   .listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
+
+
+function printMemoryUsage() {
+  const used = process.memoryUsage();
+  Object
+    .keys(used)
+    .forEach(key => {
+      console.log(`${key} ${Math.round(used[key] / 1024 / 1024 * 100) / 100} MB`);
+    });
+}

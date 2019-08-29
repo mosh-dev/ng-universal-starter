@@ -3,6 +3,7 @@ import {CookieService} from './services/cookie.service';
 import {BrowserCookieStorage} from '../utilities/storage/cookieStorage';
 import {LocalStorageService} from '../utilities/storage/localStorage';
 import {SessionStorageService} from '../utilities/storage/sessionStorage';
+import {BROWSER_PLATFORM} from '../utilities/platform';
 
 @Component({
   selector: 'app-root',
@@ -32,27 +33,28 @@ export class AppComponent {
       BrowserCookieStorage.setItem('randomKey', '123RandomToken');
     }
 
-    /**
-     * SSR Safe Storage Usage
-     */
-    LocalStorageService.setItem('key', 'value');
-    SessionStorageService.setItem('key', 'value');
+    if (BROWSER_PLATFORM) {
+      /**
+       * SSR Safe Storage Usage
+       */
+      LocalStorageService.setItem('key', 'value');
+      SessionStorageService.setItem('key', 'value');
+      /**
+       * Will be null on server cycle
+       * As there is no LocalStorage and SessionStorage is Server
+       */
+      console.log(LocalStorageService.getItem('key'));
+      console.log(SessionStorageService.getItem('key'));
 
-    /**
-     * Will be null on server cycle
-     * As there is no LocalStorage and SessionStorage is Server
-     */
-    console.log(LocalStorageService.getItem('key'));
-    console.log(SessionStorageService.getItem('key'));
+      LocalStorageService.removeItem('key');
+      SessionStorageService.removeItem('key');
 
-    LocalStorageService.removeItem('key');
-    SessionStorageService.removeItem('key');
-
-    /**
-     * Additional Methods
-     */
-    LocalStorageService.clear();
-    SessionStorageService.clear();
+      /**
+       * Additional Methods
+       */
+      LocalStorageService.clear();
+      SessionStorageService.clear();
+    }
 
 
   }
