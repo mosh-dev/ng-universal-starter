@@ -57,7 +57,7 @@ app
        * Prints How much Memory the node is using to render the  application
        * With Each Request.
        */
-      // printMemoryUsage();
+      printMemoryUsage();
       return callback(null, html);
     });
   })
