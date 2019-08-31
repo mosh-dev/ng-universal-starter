@@ -1,4 +1,4 @@
-import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 
@@ -13,8 +13,7 @@ import {AppComponent} from './app.component';
    * HOLDS: modules
    */
   imports: [
-    BrowserModule.withServerTransition({appId: 'ng-universal-starter'}),
-    BrowserTransferStateModule
+    BrowserModule.withServerTransition({appId: 'ng-universal-starter'})
   ],
   /**
    * Makes Everything PUBLICLY available to this module and other Module that Imports it.
