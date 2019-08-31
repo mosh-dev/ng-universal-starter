@@ -70,8 +70,8 @@ app
 
 function printMemoryUsage() {
   console.log('\n');
-  const used = process.memoryUsage();
   Object
-    .keys(used)
-    .forEach(key => console.log(`${key} ${Math.round(used[key] / 1024 / 1024 * 100) / 100} MB`));
+    .entries(process.memoryUsage())
+    .forEach(([key, value]) => console.log(`${key} ${Math.round(value / 1024 / 1024 * 100) / 100} MB`));
+  console.log('\n');
 }
