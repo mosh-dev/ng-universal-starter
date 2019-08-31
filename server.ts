@@ -54,7 +54,7 @@ app
       ]
     }).then(html => {
       /**
-       * Prints How much Memory the node is using to render the  application
+       * Prints How much Memory used By JS Engine to render the  application
        * With Each Request.
        */
       printMemoryUsage();
@@ -69,6 +69,7 @@ app
 
 
 function printMemoryUsage() {
+  console.log('\n');
   const used = process.memoryUsage();
   Object
     .keys(used)
