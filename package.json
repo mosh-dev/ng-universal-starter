@@ -13,8 +13,7 @@
     "build_serve_ssr": "npm run build:ssr && npm run serve:ssr",
     "build:client-and-server-bundles": "ng build --prod && ng run ng-universal-starter:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
-    "build:stats": "ng build --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/ng-universal-starter/stats-es2015.json"
+    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/ng-universal-starter/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
