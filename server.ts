@@ -57,7 +57,6 @@ app
        * Prints How much Memory used By JS Engine to render the  application
        * With Each Request.
        */
-      printMemoryUsage();
       return callback(null, html);
     });
   })
@@ -72,6 +71,8 @@ function printMemoryUsage() {
   console.log('\n');
   Object
     .entries(process.memoryUsage())
-    .forEach(([key, value]) => console.log(`${key} ${Math.round(value / 1024 / 1024 * 100) / 100} MB`));
-  console.log('\n');
+    .filter(([key]) => ['heapUsed', 'heapTotal'].includes(key))
+    .forEach(([key, value]) => console.log(`${key} - ${Math.round(value / 1024 / 1024 * 100) / 100} MB`));
 }
+
+setInterval(printMemoryUsage, 500);
