@@ -3,14 +3,13 @@ import {fromBase64} from '../../utilities/utility';
 import {BrowserCookieStorage} from '../../utilities/storage/cookieStorage';
 import {NODE_PLATFORM} from '../../utilities/platform';
 
-/**
- * KeyNames as Strings.
- * These keys are filtered from cookie object
- */
-const BLACKLISTED_KEYS: string[] = [];
-
 @Injectable({providedIn: 'root'})
 export class RequestCookieService {
+  /**
+   * KeyNames as Strings.
+   * These keys are filtered from cookie object
+   */
+  blackListedKeys: string[] = [];
   private cookieStore: any;
 
   constructor(@Optional() @Inject('COOKIES') private serverCookies: any) {
@@ -25,7 +24,7 @@ export class RequestCookieService {
       const SERVER_COOKIES = this.serverCookies || {};
       this.cookieStore = Object
         .keys(SERVER_COOKIES)
-        .filter(key => !BLACKLISTED_KEYS.includes(key))
+        .filter(key => !this.blackListedKeys.includes(key))
         .reduce((decodedCookies, key) => {
           const decodedValue = fromBase64(SERVER_COOKIES[key]);
           try {

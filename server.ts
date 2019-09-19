@@ -9,7 +9,7 @@ import * as express from 'express';
 
 enableProdMode();
 
-const app = express();
+const app: any = express();
 const cookieParser = require('cookie-parser');
 
 /**
@@ -35,13 +35,24 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 const APP_FOLDER = 'ng-universal-starter';
 
 /**
+ * Lists Of Hosts on Which Things will be filtered. ex - Cookies.
+ */
+const HOSTS = [
+  'http://localhost:4300',
+  'http://localhost:4000',
+  'https://beta.sadagar.com',
+  'https://sadagar.com'
+];
+
+/**
  * NOTE :: leave this as require() since this file is built Dynamically from webpack
  */
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
 app
   .use(cookieParser())
-  .engine('html', (_, options: any, callback) => {
-    const req = options.req;
+  .engine('html', (_, {req}: any, callback) => {
+    const {headers} = req;
+    const reqHost = req.protocol + '://' + (req.get('host') || headers[':authority']);
     renderModuleFactory(AppServerModuleNgFactory, {
       document: readFileSync(join(DIST_FOLDER, APP_FOLDER, 'index.html')).toString(),
       url: req.url,
@@ -49,7 +60,7 @@ app
         provideModuleMap(LAZY_MODULE_MAP),
         {
           provide: 'COOKIES',
-          useValue: req.cookies || {}
+          useValue: HOSTS.includes(reqHost) ? req.cookies : {}
         }
       ]
     }).then(html => {
