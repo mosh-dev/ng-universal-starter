@@ -21,7 +21,7 @@ export class AppComponent {
   //     /**
   //      * Access with RequestCookieService
   //      * This will work both on ClientSide Cycle and SSR Cycle,
-  //      * Where BrowserCookieService is only works at clientSide
+  //      * Where BrowserCookieStorage is only works at clientSide
   //      * Cookies are sent with request and injected in via provider in AppEngine inside server.ts
   //      */
   //     console.log(rcs.getCookieItem('randomKey'));
