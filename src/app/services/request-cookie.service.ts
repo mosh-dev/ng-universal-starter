@@ -10,7 +10,7 @@ export class RequestCookieService {
    * These keys are filtered from cookie object
    */
   blackListedKeys: string[] = [];
-  private cookieStore: any;
+  private cookieStore: { [key: string]: string | number };
 
   constructor(@Optional() @Inject('COOKIES') private serverCookies: any) {
   }
