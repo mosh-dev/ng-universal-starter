@@ -2,7 +2,6 @@ import {Inject, Injectable, Optional} from '@angular/core';
 import {fromBase64} from '../../utilities/utility';
 import {BrowserCookieStorage} from '../../utilities/storage/cookieStorage';
 import {NODE_PLATFORM} from '../../utilities/platform';
-import {ObjectOf} from '../../typings';
 
 @Injectable({providedIn: 'root'})
 export class RequestCookieService {
@@ -11,7 +10,7 @@ export class RequestCookieService {
    * These keys are filtered from cookie object
    */
   blackListedKeys: string[] = [];
-  private cookieStore: ObjectOf<number | string>;
+  private cookieStore: any;
 
   constructor(@Optional() @Inject('COOKIES') private serverCookies: any) {
   }
