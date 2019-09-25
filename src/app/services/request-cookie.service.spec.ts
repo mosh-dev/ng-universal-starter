@@ -6,7 +6,7 @@ describe('RequestCookieService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RequestCookieService = TestBed.get(RequestCookieService);
+    const service: RequestCookieService = TestBed.inject(RequestCookieService);
     expect(service).toBeTruthy();
   });
 });
