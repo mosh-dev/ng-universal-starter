@@ -38,11 +38,11 @@ const APP_FOLDER = 'ng-universal-starter';
  * Lists Of Hosts on Which Things will be filtered. ex - Cookies.
  */
 const HOSTS = [
-  'http://localhost:4300',
-  'http://localhost:4000',
-  'https://beta.sadagar.com',
-  'https://sadagar.com'
+  'localhost:4300',
+  'localhost:4000'
 ];
+
+const hostMatcher = new RegExp(`^(https?:\/\/)?([a-zA-Z\d-]+\.)*(${HOSTS.join('|')})$`);
 
 /**
  * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -60,7 +60,7 @@ app
         provideModuleMap(LAZY_MODULE_MAP),
         {
           provide: 'COOKIES',
-          useValue: HOSTS.includes(reqHost) ? req.cookies : {}
+          useValue: hostMatcher.test(reqHost) ? req.cookies : {}
         }
       ]
     }).then(html => {
