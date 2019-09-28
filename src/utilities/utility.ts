@@ -11,15 +11,9 @@ export const toBase64 = (value: string) => {
 };
 
 export const getTimer = (hour: number) => {
-  /**
-   * Get today's date and time
-   */
-  const NOW = new Date().getTime();
-  const DUE_TIME = (hour * 60 * 60 * 1000) - 1000;
-  let distance = NOW + DUE_TIME;
-
+  let distance = (hour * 60 * 60 * 1000) - 1000;
   return timer(0, 1000).pipe(
-    takeUntil(timer(DUE_TIME)),
+    takeUntil(timer(distance)),
     map(() => {
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
