@@ -63,13 +63,7 @@ app
           useValue: hostMatcher.test(reqHost) ? req.cookies : {}
         }
       ]
-    }).then(html => {
-      /**
-       * Prints How much Memory used By JS Engine to render the  application
-       * With Each Request.
-       */
-      return callback(null, html);
-    });
+    }).then(html => callback(null, html));
   })
   .set('view engine', 'html')
   .set('views', join(DIST_FOLDER, APP_FOLDER))
@@ -78,6 +72,11 @@ app
   .listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
 
 
+
+/**
+ * Prints How much Memory used By JS Engine to render the  application
+ * With Each Request.
+ */
 function printMemoryUsage() {
   console.log('\n');
   Object
@@ -86,4 +85,4 @@ function printMemoryUsage() {
     .forEach(([key, value]) => console.log(`${key} - ${Math.round(value / 1024 / 1024 * 100) / 100} MB`));
 }
 
-setInterval(printMemoryUsage, 500);
+setInterval(printMemoryUsage, 1000);
