@@ -23,6 +23,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
+            "sourceMap": true,
+            "vendorChunk": false,
+            "optimization": false,
+            "buildOptimizer": false,
+            "extractCss": true,
+            "extractLicenses": true,
+            "namedChunks": false,
+            "commonChunk": true,
+            "outputHashing": "all",
             "assets": [
               "src/favicon.ico",
               "src/assets"
