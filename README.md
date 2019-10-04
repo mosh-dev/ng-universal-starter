@@ -47,9 +47,41 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+###  Installing Docker
+####Option 1 
+- Install Docker From Snap and Enable Access file in home folder permission, It can be done by opening ubuntu software center.
 
-### Docker instructions
-#docker-compose build
+####Option 2
+ - Manual Installation - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+
+
+If you want to avoid typing sudo whenever you run the docker command, add your username to the docker group: - 
+
+`````sudo usermod -aG docker ${USER}`````
+
+To apply the new group membership, log out of the server and back in, or type the following:
+
+```su - ${USER}```
+
+If you need to add a user to the docker group that you’re not logged in as, declare that username explicitly using:
+`sudo usermod -aG docker username`
+
+
+Create network
+# network create 
+`````
+docker network create \
+  --driver=bridge \
+  --subnet=172.28.0.0/16 \
+  --ip-range=172.28.5.0/24 \
+  --internal=false\
+  --gateway=172.28.5.254 \
+  --attachable=true \
+  local-network
+`````
+
+### Finally
+`docker-compose build`
 
 ### Before `docker-compose up -d` add `npm i` in command before ng serve
 ```sh
