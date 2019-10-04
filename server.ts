@@ -72,17 +72,16 @@ app
   .listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
 
 
-
 /**
  * Prints How much Memory used By JS Engine to render the  application
  * With Each Request.
  */
 function printMemoryUsage() {
   console.log('\n');
+  const {heapTotal, heapUsed} = process.memoryUsage();
   Object
-    .entries(process.memoryUsage())
-    .filter(([key]) => ['heapUsed', 'heapTotal'].includes(key))
+    .entries({heapTotal, heapUsed})
     .forEach(([key, value]) => console.log(`${key} - ${Math.round(value / 1024 / 1024 * 100) / 100} MB`));
 }
 
-setInterval(printMemoryUsage, 1000);
+setInterval(printMemoryUsage, 2000);
