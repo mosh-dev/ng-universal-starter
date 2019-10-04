@@ -1,0 +1,22 @@
+# base image
+FROM node:10-alpine
+
+# set working directory
+RUN mkdir /usr/src/app -p
+WORKDIR /usr/src/app
+
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
+
+# add app
+COPY . /usr/src/app
+RUN npm install -g npm@latest
+RUN npm install -g @angular/cli@latest
+
+# RUN npm install
+# CMD ["ng", "--host=0.0.0.0","--watch", "--poll=2000", "serve"]
+# start app
+# CMD npm run build:ssr && npm run serve:ssr --host 0.0.0.0

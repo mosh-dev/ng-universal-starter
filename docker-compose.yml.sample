@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  angular:
+    user: "1000:root"
+    build:
+      context: .
+      dockerfile: Dockerfile-local
+    networks:
+      local-network:
+        ipv4_address: 172.28.5.10
+    container_name: ng-universal-starter
+    restart: always
+    ports:
+      - '8009:4200'
+    volumes:
+      - ./:/usr/src/app
+    command: >
+      sh -c "ng serve --host 0.0.0.0 --watch --disable-host-check"
+networks:
+  local-network:
+    external: true
+
+
+
+#instructions
+#docker-compose build
+
+#Before `docker-compose up -d` add `npm i` in command before ng serve
+#docker-compose up -d
+
+#docker exec -it ng-universal-starter npm install
