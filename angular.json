@@ -136,7 +136,8 @@
             "main": "src/main.server.ts",
             "tsConfig": "tsconfig.server.json",
             "sourceMap": false,
-            "optimization": true
+            "optimization": true,
+            "extractLicenses": true
           },
           "configurations": {
             "production": {
