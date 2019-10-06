@@ -31,6 +31,8 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "dist"),
+    library: 'app',
+    libraryTarget: "umd"
   },
   plugins: [
     new webpack.ContextReplacementPlugin(
