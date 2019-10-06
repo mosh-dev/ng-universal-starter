@@ -48,10 +48,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ###  Installing Docker
-####Option 1 
+#### Option 1 
 - Install Docker From Snap and Enable Access file in home folder permission, It can be done by opening ubuntu software center.
 
-####Option 2
+#### Option 2
  - Manual Installation - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
 
 
