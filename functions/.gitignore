@@ -1,7 +1,6 @@
-/dist
-
 ## Compiled JavaScript files
 /lib
+/dist
 
 # Typescript v1 declaration files
 typings/
