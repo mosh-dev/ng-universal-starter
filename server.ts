@@ -93,6 +93,6 @@ app.listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}
 
 
 /**
- * Exported For Firebase Function Imports
+ * Exported For Firebase Function To import
  */
 export {app};
