@@ -153,5 +153,8 @@
       }
     }
   },
-  "defaultProject": "ng-universal-starter"
+  "defaultProject": "ng-universal-starter",
+  "cli": {
+    "analytics": "f36742ce-c85b-4f30-9a04-46173ee1f782"
+  }
 }
