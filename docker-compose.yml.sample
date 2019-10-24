@@ -15,7 +15,7 @@ services:
     volumes:
       - ./:/usr/src/app
     command: >
-      sh -c "ng serve --host 0.0.0.0 --watch --disable-host-check"
+      sh -c "ng serve --host 0.0.0.0 --watch --disable-host-check --live-reload=false"
 networks:
   local-network:
     external: true
