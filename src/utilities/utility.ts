@@ -46,16 +46,16 @@ export const buildReactiveFormErrors = (controls: FormControls, errs = []): Arra
     .forEach(([controlName, control]) => {
       if (control instanceof FormGroup) {
         if (control.errors) {
-          errs.push({[controlName]: controlName, errors: control.errors});
+          errs.push({controlName, errors: control.errors});
         }
         buildReactiveFormErrors(control.controls, errs);
       } else if (control instanceof FormArray) {
         errs.push({
-          [controlName]: controlName,
+          controlName,
           errors: control.controls.map(({errors}) => errors).filter(e => e)
         });
       } else if (control instanceof FormControl && control.errors) {
-        errs.push({[controlName]: controlName, errors: control.errors});
+        errs.push({controlName, errors: control.errors});
       }
     });
   return errs

@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RequestCookieService} from './services/request-cookie.service';
 import {BrowserCookieStorage} from '../utilities/storage/cookieStorage';
+import {BROWSER_PLATFORM, NODE_PLATFORM} from '../utilities/platform';
 import {LocalStorageService} from '../utilities/storage/localStorage';
 import {SessionStorageService} from '../utilities/storage/sessionStorage';
-import {BROWSER_PLATFORM, NODE_PLATFORM} from '../utilities/platform';
 
 @Component({
   selector: 'app-root',
