@@ -25,9 +25,7 @@ export class AppComponent {
        * Where BrowserCookieStorage is only works at clientSide
        * Cookies are sent with request and injected in via provider in AppEngine inside server.ts
        */
-      // console.log(rcs.getCookieItem('randomKey'));
-      BrowserCookieStorage.removeItem('randomKey');
-      BrowserCookieStorage.clear();
+      console.log(rcs.getCookieItem('randomKey'));
     } else {
       BrowserCookieStorage.setItem('randomKey', '123RandomToken');
     }

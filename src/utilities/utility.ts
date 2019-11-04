@@ -2,6 +2,7 @@ import {NODE_PLATFORM} from './platform';
 import {timer} from 'rxjs';
 import {map, takeUntil} from 'rxjs/operators';
 import {AbstractControl, FormArray, FormControl, FormGroup} from '@angular/forms';
+import {ObjectMap} from '../typings/typings';
 
 export const fromBase64 = (base64String: string) => {
   return NODE_PLATFORM ? Buffer.from(base64String, 'base64').toString() : atob(base64String);
@@ -36,11 +37,7 @@ interface ReactiveErrorItem {
   errors: any;
 }
 
-interface FormControls {
-  [key: string]: AbstractControl;
-}
-
-export const buildReactiveFormErrors = (controls: FormControls, errs = []): Array<ReactiveErrorItem> => {
+export const buildReactiveFormErrors = (controls: ObjectMap<AbstractControl>, errs = []): Array<ReactiveErrorItem> => {
   Object
     .entries(controls)
     .forEach(([controlName, control]) => {
