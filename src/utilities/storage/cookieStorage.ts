@@ -48,7 +48,6 @@ class CookieStorage {
     const path = '/';
     const sameSite = 'Strict';
     document.cookie = `${name}=${btoa(parsedValue)};expires=${expiryDate};path=${path};SameSite=${sameSite}`;
-    CookieStorage.cookieStore = null;
   }
 
   static clear() {
