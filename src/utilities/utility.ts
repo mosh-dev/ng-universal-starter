@@ -12,6 +12,19 @@ export const toBase64 = (value: string) => {
   return NODE_PLATFORM ? Buffer.from(value).toString('base64') : btoa(value);
 };
 
+export const parseQueryString = (queryString: string): ObjectMap<string> => {
+  if (queryString.length && queryString.includes('=')) {
+    return queryString.split('&').reduce((params, item) => {
+      const [key, value] = item.split('=');
+      if (key && value) {
+        return {...params, [key]: value};
+      }
+      return params;
+    }, {});
+  }
+  return {};
+};
+
 export const getTimer = (hour: number) => {
   let distance = (hour * 60 * 60 * 1000) - 1000;
   return timer(0, 1000).pipe(

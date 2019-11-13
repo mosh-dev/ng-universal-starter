@@ -4,6 +4,7 @@ import {BrowserCookieStorage} from '../utilities/storage/cookieStorage';
 import {BROWSER_PLATFORM, NODE_PLATFORM} from '../utilities/platform';
 import {LocalStorageService} from '../utilities/storage/localStorage';
 import {SessionStorageService} from '../utilities/storage/sessionStorage';
+import {parseQueryString} from '../utilities/utility';
 
 @Component({
   selector: 'app-root',
@@ -51,6 +52,8 @@ export class AppComponent {
        */
       LocalStorageService.clear();
       SessionStorageService.clear();
+
+      // ['', 'sdfs', '===', '&&', '&dfsdf=fff', '10=20'].forEach(item => console.log(parseQueryString(item)));
     }
   }
 }
