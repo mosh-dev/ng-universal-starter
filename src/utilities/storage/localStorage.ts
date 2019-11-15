@@ -1,4 +1,4 @@
-import {BROWSER_PLATFORM} from '../platform';
+const BROWSER_PLATFORM = typeof window !== 'undefined' && typeof window.document !== 'undefined';
 
 class LocalStorage {
   static get(key: string) {
@@ -17,37 +17,31 @@ class LocalStorage {
    * Other types need to be stringed except string
    *
    */
-  static set(key: string, item: any): void {
+  static set(key: string, item) {
     (typeof item === 'string') ? localStorage.setItem(key, item) : localStorage.setItem(key, JSON.stringify(item));
-  }
-
-  static removeItem(key: string) {
-    localStorage.removeItem(key);
-  }
-
-  static clear() {
-    localStorage.clear();
   }
 }
 
 export class LocalStorageService {
-  static removeItem(key: string): any {
-    return BROWSER_PLATFORM ? LocalStorage.removeItem(key) : null;
+  static removeItem(key: string) {
+    if (BROWSER_PLATFORM) {
+      localStorage.removeItem(key);
+    }
   }
 
-  static setItem(key: string, item: any): void {
+  static setItem(key: string, item) {
     if (BROWSER_PLATFORM) {
       LocalStorage.set(key, item);
     }
   }
 
-  static getItem(key: string): any {
+  static getItem(key: string) {
     return BROWSER_PLATFORM ? LocalStorage.get(key) : null;
   }
 
   static clear() {
     if (BROWSER_PLATFORM) {
-      LocalStorage.clear();
+      localStorage.clear();
     }
   }
 }
