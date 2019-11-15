@@ -1,4 +1,4 @@
-import {BROWSER_PLATFORM} from '../platform';
+const BROWSER_PLATFORM = typeof window !== 'undefined' && typeof window.document !== 'undefined';
 
 class SessionStorage {
   static get(key: string) {
@@ -17,38 +17,32 @@ class SessionStorage {
    * Other types need to be stringed except string
    *
    */
-  static set(key: string, item: any): void {
+  static set(key: string, item) {
     (typeof item === 'string') ? sessionStorage.setItem(key, item) : sessionStorage.setItem(key, JSON.stringify(item));
-  }
-
-  static removeItem(key: string) {
-    sessionStorage.removeItem(key);
-  }
-
-  static clear() {
-    sessionStorage.clear();
   }
 }
 
 
 export class SessionStorageService {
-  static removeItem(key: string): any {
-    return BROWSER_PLATFORM ? SessionStorage.removeItem(key) : null;
+  static removeItem(key: string) {
+    if (BROWSER_PLATFORM) {
+      sessionStorage.removeItem(key);
+    }
   }
 
-  static setItem(key: string, item: any): void {
+  static setItem(key: string, item) {
     if (BROWSER_PLATFORM) {
       SessionStorage.set(key, item);
     }
   }
 
-  static getItem(key: string): any {
+  static getItem(key: string) {
     return BROWSER_PLATFORM ? SessionStorage.get(key) : null;
   }
 
   static clear() {
     if (BROWSER_PLATFORM) {
-      SessionStorage.clear();
+      sessionStorage.clear();
     }
   }
 }
