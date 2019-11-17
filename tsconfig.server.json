@@ -13,6 +13,6 @@
   ],
   "angularCompilerOptions": {
     "entryModule": "src/server/app.server.module#AppServerModule",
-    "enableIvy": false
+    "enableIvy": "ngtsc"
   }
 }
