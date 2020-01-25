@@ -11,8 +11,8 @@
 /node_modules
 
 # profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
+chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -40,17 +40,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-docker-compose.yml
 
 # System Files
 .DS_Store
 Thumbs.db
-
-
-# environments
-src/environments/environment.ts
-src/environments/environment.prod.ts
-
-/.firebase
-firebase.json
-.firebaserc
