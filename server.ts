@@ -31,6 +31,7 @@ export function app() {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
+    // printMemoryUsage();
     res.render(indexHtml, {req, providers: [{provide: APP_BASE_HREF, useValue: req.baseUrl}]});
   });
 
@@ -58,3 +59,16 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
 }
 
 export * from './src/main.server';
+
+
+/**
+ * Prints How much Memory used By JS Engine to render the  application
+ * With Each Request.
+ */
+// function printMemoryUsage() {
+//   console.log('\n');
+//   const {heapTotal, heapUsed} = process.memoryUsage();
+//   Object
+//     .entries({heapTotal, heapUsed})
+//     .forEach(([key, value]) => console.log(`${key} - ${Math.round(value / 1024 / 1024 * 100) / 100} MB`));
+// }
