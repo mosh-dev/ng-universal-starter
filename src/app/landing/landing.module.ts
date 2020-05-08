@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {LandingComponent} from './landing.component';
-import {RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { LandingComponent } from './landing.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
