@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +14,8 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule
+    AngularFireAnalyticsModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })
