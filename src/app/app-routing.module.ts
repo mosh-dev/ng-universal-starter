@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-
-const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./root/root.module').then(m => m.RootModule)
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
-];
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
+    RouterModule.forRoot([
+      {
+        path: '',
+        loadChildren: () => import('./root/root.module').then(m => m.RootModule)
+      },
+      {
+        path: '**',
+        redirectTo: ''
+      }
+    ], {
       initialNavigation: 'enabled'
     })
   ],
