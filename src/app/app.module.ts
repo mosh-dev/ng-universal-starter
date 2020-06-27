@@ -10,8 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     BrowserAnimationsModule,
+    BrowserTransferStateModule,
     AppRoutingModule,
-    BrowserTransferStateModule
   ],
   bootstrap: [AppComponent]
 })
