@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LandingService } from './landing.service';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MatRippleModule,
     AngularFirestoreModule
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LandingService]
 })
 export class LandingModule {
 }
