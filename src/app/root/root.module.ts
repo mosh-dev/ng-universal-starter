@@ -12,7 +12,7 @@ import { RootRoutingModule } from './root-routing/root-routing.module';
     CommonModule,
     RootRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
+    AngularFireAnalyticsModule
   ]
 })
 export class RootModule {

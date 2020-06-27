@@ -4,9 +4,16 @@
 
 
 <mat-card style="margin: 2rem" class="mat-elevation-z10">
+  <mat-card-header>
+    <mat-card-title>Users</mat-card-title>
+    <mat-card-subtitle>List of all users</mat-card-subtitle>
+  </mat-card-header>
   <mat-list>
-    <mat-list-item *ngFor="let user of users | async" matRipple>
-      {{user.name}}
-    </mat-list-item>
+    <ng-container *ngFor="let user of (users | async) as Users; let i = index">
+      <mat-list-item>
+        {{user.name}}
+      </mat-list-item>
+      <mat-divider *ngIf="i !== Users.length - 1"></mat-divider>
+    </ng-container>
   </mat-list>
 </mat-card>
