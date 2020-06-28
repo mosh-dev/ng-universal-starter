@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, Router, UrlSegment } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class PrivateGuard implements CanLoad {
+export class PrivateGuard implements CanActivate {
   constructor(private router: Router) {
   }
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.router.navigate(['login']).then(() => false);
   }
 }

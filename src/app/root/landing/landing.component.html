@@ -3,7 +3,7 @@
 </div>
 
 
-<mat-card style="margin: 2rem" class="mat-elevation-z10">
+<mat-card style="margin: 2rem; padding: 2rem" class="mat-elevation-z10">
   <mat-card-header>
     <mat-card-title>Users</mat-card-title>
     <mat-card-subtitle>List of all users</mat-card-subtitle>
@@ -13,7 +13,7 @@
       <mat-list-item>
         {{user.name}}
       </mat-list-item>
-      <mat-divider *ngIf="i !== Users.length - 1"></mat-divider>
+      <mat-divider style="position: relative" *ngIf="i !== Users.length - 1"></mat-divider>
     </ng-container>
   </mat-list>
 </mat-card>

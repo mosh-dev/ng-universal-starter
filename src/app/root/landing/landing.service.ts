@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { TransferState } from '@angular/platform-browser';
 import { startWith, tap } from 'rxjs/operators';
-import { BROWSER_PLATFORM, NODE_PLATFORM } from '../../../utilities/platform';
-import { usersStateKey } from '../../../state-keys/state-keys';
+import { BROWSER_PLATFORM, NODE_PLATFORM } from '../../utilities/platform';
+import { usersStateKey } from '../../state-keys/state-keys';
 
 @Injectable()
 export class LandingService {
