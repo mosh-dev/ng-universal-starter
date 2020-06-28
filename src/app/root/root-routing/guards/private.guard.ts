@@ -10,6 +10,7 @@ export class PrivateGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.router.navigate(['login']).then(() => false);
+    // return this.router.navigate(['login']).then(() => false);
+    return true;
   }
 }

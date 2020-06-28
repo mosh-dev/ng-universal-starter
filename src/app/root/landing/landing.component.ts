@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { LandingService } from './landing.service';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-landing',
@@ -8,16 +6,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
   title = 'ng-universal-starter';
-  users = this.landingService.users;
-
-  constructor(
-    private landingService: LandingService,
-    private router: Router
-  ) {
-  }
-
-  ngOnInit() {
-  }
 }
