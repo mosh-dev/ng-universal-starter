@@ -3,9 +3,9 @@
     <mat-card-title>Users</mat-card-title>
     <mat-card-subtitle>List of all users</mat-card-subtitle>
   </mat-card-header>
-  <mat-list>
-    <ng-container *ngFor="let user of (users | async) as Users; let i = index">
-      <mat-list-item>
+  <mat-list *ngIf="(users | async) as Users">
+    <ng-container *ngFor="let user of Users; let i = index">
+      <mat-list-item style="background-color: #f5f5f5">
         {{user.name}}
       </mat-list-item>
       <mat-divider style="position: relative" *ngIf="i !== Users.length - 1"></mat-divider>
