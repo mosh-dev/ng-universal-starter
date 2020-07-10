@@ -1,6 +1,6 @@
 {
   "name": "ng-universal-starter",
-  "version": "10.0.0",
+  "version": "10.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -26,7 +26,7 @@
     "@angular/router": "^10.0.3",
     "@nguniversal/express-engine": "^10.0.1",
     "express": "^4.17.1",
-    "rxjs": "~6.5.5",
+    "rxjs": "~6.6.0",
     "tslib": "^1.13.0",
     "zone.js": "^0.10.3"
   },
