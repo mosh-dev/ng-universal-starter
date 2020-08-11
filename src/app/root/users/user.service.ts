@@ -15,7 +15,7 @@ export class UserService {
           this.state.set(usersStateKey, (users || []));
         }
       }),
-      BROWSER_PLATFORM ? startWith(this.state.get(usersStateKey, [])) : tap()
+      startWith(BROWSER_PLATFORM ? this.state.get(usersStateKey, []) : [])
     );
 
   constructor(
