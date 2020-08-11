@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { startWith, tap } from 'rxjs/operators';
-import { BROWSER_PLATFORM, NODE_PLATFORM } from '../../utilities/platform';
-import { usersStateKey } from '../../state-keys/state-keys';
+import { BROWSER_PLATFORM, NODE_PLATFORM } from '../../../utilities/platform';
+import { usersStateKey } from '../../../state-keys/state-keys';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { TransferState } from '@angular/platform-browser';
 

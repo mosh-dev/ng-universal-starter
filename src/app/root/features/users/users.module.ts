@@ -8,12 +8,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UserService } from './user.service';
+import { RootSharedModule } from '../../root-shared/root-shared.module';
 
 
 @NgModule({
   declarations: [UsersComponent],
   imports: [
     CommonModule,
+    RootSharedModule,
     UsersRoutingModule,
     MatListModule,
     MatCardModule,
