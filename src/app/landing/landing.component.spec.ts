@@ -26,7 +26,7 @@ describe('LandingComponent', () => {
   it('should render title', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng-universal-starter app is not running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ng-universal-starter app is running!');
   });
 
 });
