@@ -54,3 +54,5 @@ src/environments/environment.prod.ts
 /.firebase
 firebase.json
 .firebaserc
+
+debug.log
