@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
+    loadChildren: () => import('./app-landing/app-landing.module').then(m => m.AppLandingModule)
   },
   {
     path: '**',

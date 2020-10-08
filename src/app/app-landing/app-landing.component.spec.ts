@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LandingComponent } from './landing.component';
+import { AppLandingComponent } from './app-landing.component';
 
 describe('LandingComponent', () => {
-  let component: LandingComponent;
-  let fixture: ComponentFixture<LandingComponent>;
+  let component: AppLandingComponent;
+  let fixture: ComponentFixture<AppLandingComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LandingComponent]
+      declarations: [AppLandingComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LandingComponent);
+    fixture = TestBed.createComponent(AppLandingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
