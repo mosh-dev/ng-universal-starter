@@ -56,4 +56,15 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   run();
 }
 
+function printMemoryUsage(): void {
+  console.log('\n');
+  const {heapTotal, heapUsed} = process.memoryUsage();
+  [
+    ['Heap Total : ', heapTotal],
+    ['Heap Used  : ', heapUsed]
+  ].forEach(([key, value]) => console.log(`${key}${Math.round((value as number) / 1024 / 1024 * 100) / 100} MB`));
+}
+
+// setInterval(printMemoryUsage, 2000);
+
 export * from './src/main.server';
