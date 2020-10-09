@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
-    AppRoutingModule,
-    BrowserTransferStateModule
+    BrowserTransferStateModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
