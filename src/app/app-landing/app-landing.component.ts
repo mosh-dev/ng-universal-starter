@@ -26,7 +26,7 @@ export class AppLandingComponent {
 
   private storeHeadersInformation(): void {
     if (isPlatformServer(this.platformId)) {
-      this.headers = this.request.headers;
+      this.headers = this.request.headers || {};
       this.transferState.set(HEADERS_KEY, this.headers);
     } else {
       this.headers = this.transferState.get(HEADERS_KEY, {});
