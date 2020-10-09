@@ -60,7 +60,8 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "statsJson": true
             }
           }
         },
@@ -139,8 +140,11 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "sourceMap": false,
-              "optimization": true
+              "sourceMap": true,
+              "optimization": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "statsJson": false
             }
           }
         },

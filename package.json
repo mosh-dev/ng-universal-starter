@@ -11,7 +11,9 @@
     "dev:ssr": "ng run ng-universal-starter:serve-ssr",
     "serve:ssr": "node dist/ng-universal-starter/server/main.js",
     "build:ssr": "ng build --prod && ng run ng-universal-starter:server:production",
-    "prerender": "ng run ng-universal-starter:prerender"
+    "prerender": "ng run ng-universal-starter:prerender",
+    "analyze-existing-build": "webpack-bundle-analyzer dist/ng-universal-starter/browser/stats.json",
+    "build-and-analyze": "npm run build:ssr && npm run analyze-existing-build"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +53,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "^6.1.3",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "webpack-bundle-analyzer": "^3.9.0"
   }
 }
