@@ -2,10 +2,9 @@ import { ChangeDetectionStrategy, Component, Inject, Optional, PLATFORM_ID } fro
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Request } from 'express';
 import { isPlatformServer } from '@angular/common';
-import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { TransferState } from '@angular/platform-browser';
 import { IncomingHttpHeaders } from 'http';
-
-const headers = makeStateKey('headers');
+import { HEADERS_KEY } from '../root/state.keys';
 
 @Component({
   selector: 'app-landing',
@@ -22,9 +21,15 @@ export class AppLandingComponent {
     @Inject(PLATFORM_ID) private platformId: string,
     private transferState: TransferState
   ) {
+    this.storeHeadersInformation();
+  }
+
+  private storeHeadersInformation(): void {
     if (isPlatformServer(this.platformId)) {
-      this.transferState.set(headers, this.request.headers);
+      this.headers = this.request.headers;
+      this.transferState.set(HEADERS_KEY, this.headers);
+    } else {
+      this.headers = this.transferState.get(HEADERS_KEY, {});
     }
-    this.headers = this.transferState.get(headers, {});
   }
 }
