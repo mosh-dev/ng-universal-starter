@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppLandingComponent } from './app-landing.component';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 describe('LandingComponent', () => {
   let component: AppLandingComponent;
@@ -8,6 +9,7 @@ describe('LandingComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [BrowserTransferStateModule],
       declarations: [AppLandingComponent]
     })
       .compileComponents();
