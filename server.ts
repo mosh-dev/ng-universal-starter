@@ -8,6 +8,10 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import { environment } from './src/environments/environment';
+
+let requestReceived = 0;
+let concurrent = 0;
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): Express {
@@ -30,6 +34,8 @@ export function app(): Express {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
+    ++requestReceived;
+    ++concurrent;
     res.render(indexHtml, {req, providers: [{provide: APP_BASE_HREF, useValue: req.baseUrl}]});
   });
 
@@ -56,15 +62,20 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   run();
 }
 
-function printMemoryUsage(): void {
+function printUsage(): void {
   console.log('\n');
   const {heapTotal, heapUsed} = process.memoryUsage();
   [
-    ['Heap Total : ', heapTotal],
-    ['Heap Used  : ', heapUsed]
-  ].forEach(([key, value]) => console.log(`${key}${Math.round((value as number) / 1024 / 1024 * 100) / 100} MB`));
+    `Request Total       : ${requestReceived}`,
+    `Request Per Second  : ${Math.trunc(concurrent)}`,
+    `Heap Total          : ${Math.round((heapTotal) / 1024 / 1024 * 100) / 100} MB`,
+    `Heap Used           : ${Math.round((heapUsed) / 1024 / 1024 * 100) / 100} MB`
+  ].forEach(item => console.log(item));
+  concurrent = 0;
 }
 
-// setInterval(printMemoryUsage, 2000);
+if (environment.enableStatistics) {
+  setInterval(printUsage, 1000);
+}
 
 export * from './src/main.server';
