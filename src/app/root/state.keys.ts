@@ -1,3 +1,3 @@
 import { makeStateKey } from '@angular/platform-browser';
 
-export const HEADERS_KEY = makeStateKey('headers');
+export const REQUEST_HEADERS_KEY = makeStateKey('request_headers');
